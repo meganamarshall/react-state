@@ -4,24 +4,21 @@ exports[`ColorPicker component renders the colorpicker 1`] = `
 <section
   className="ColorPicker"
 >
-  <button
-    className="red"
-    onClick={[Function]}
-  >
-    Red
-  </button>
-  <button
-    className="green"
-    onClick={[Function]}
-  >
-    Green
-  </button>
-  <button
-    className="blue"
-    onClick={[Function]}
-  >
-    Blue
-  </button>
+  <Button
+    color="red"
+    colorHandler={[Function]}
+    key="0"
+  />
+  <Button
+    color="green"
+    colorHandler={[Function]}
+    key="1"
+  />
+  <Button
+    color="blue"
+    colorHandler={[Function]}
+    key="2"
+  />
   <div
     className=""
   />
