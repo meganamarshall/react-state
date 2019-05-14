@@ -7,7 +7,7 @@ export default class Incrementer extends PureComponent {
 
   incrementCount = () => {
     this.setState(state => {
-      return { count: state.count += 1 };
+      return { count: state.count + 1 };
     });
   }
 
