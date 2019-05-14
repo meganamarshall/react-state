@@ -1,10 +1,16 @@
 import React, { PureComponent } from 'react';
 import styles from './ColorPicker.css';
+import PropTypes from 'prop-types';
+import Button from './Button';
 
 export default class ColorPicker extends PureComponent {
   state = {
     color: ''
   };
+
+  static propTypes = {
+    colors: PropTypes.array.isRequired
+  }
 
   selectColor = color => {
     this.setState({ color });
@@ -15,9 +21,9 @@ export default class ColorPicker extends PureComponent {
   
     return (
       <section className={styles.ColorPicker}>
-        <button className={styles.red} onClick={this.selectColor.bind(null, 'red')}>Red</button>
-        <button className={styles.green} onClick={() => this.selectColor('green')}>Green</button>
-        <button className={styles.blue} onClick={() => this.selectColor('blue')}>Blue</button>
+        {this.props.colors.map((color, i) => {
+          return <Button key={i} color={color} colorHandler={this.selectColor}/>;
+        })}
         <div className={styles[color]}></div>
       </section>
     );
