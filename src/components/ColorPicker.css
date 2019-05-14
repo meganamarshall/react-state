@@ -1,6 +1,10 @@
 .ColorPicker {
+  div {
+    height: 100px;
+    width: 100px
+  }
   button {
-    margin: '.5em';
+    margin: 0.5em;
     padding: 0.5em
   }
 

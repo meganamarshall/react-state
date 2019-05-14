@@ -11,13 +11,14 @@ export default class ColorPicker extends PureComponent {
   }
 
   render() {
-    const color = this.state;
+    const { color } = this.state;
   
     return (
       <section className={styles.ColorPicker}>
-        <button className={styles.red}>Red</button>
-        <button className={styles.green}>Green</button>
-        <button className={styles.blue}>Blue</button>
+        <button className={styles.red} onClick={this.selectColor.bind(null, 'red')}>Red</button>
+        <button className={styles.green} onClick={() => this.selectColor('green')}>Green</button>
+        <button className={styles.blue} onClick={() => this.selectColor('blue')}>Blue</button>
+        <div className={styles[color]}></div>
       </section>
     );
   }
