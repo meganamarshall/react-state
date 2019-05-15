@@ -5,7 +5,8 @@ import React, { PureComponent } from 'react';
 export default class RandomColor extends PureComponent {
   state = {
     color: '',
-    trigger: new Date()
+    trigger: new Date(),
+    img: ''
   }
 
   randomColor = () => {
@@ -20,16 +21,20 @@ export default class RandomColor extends PureComponent {
       this.setState({ color: this.randomColor(), trigger: new Date() });
     }, 1500);
   }
-  //component did update - pass prevProps and prevState - this is where you'd set the meme if the prev state is equal to new state
   
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.color === this.state.color) {
+      this.setState({ img: 'https://i.dailymail.co.uk/i/pix/2016/03/18/15/324D202500000578-3498922-image-a-33_1458315465874.jpg' });
+    }
+  }
   componentWillUnmount() {
     clearInterval(this.intervalId);
   }
   
   render() {
-    const { color } = this.state;
+    const { color, img } = this.state;
     const styles = {
-      background: color,
+      background: img ? `center / contain url(${img})` : color,
       width: '100px',
       height: '100px',
       border: '1px solid black'
